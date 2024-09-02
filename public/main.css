@@ -117,3 +117,7 @@ footer {
     background: var(--ory-theme-background-surface);
   }
 }
+
+#oidc, #profile {
+  display: none;
+}

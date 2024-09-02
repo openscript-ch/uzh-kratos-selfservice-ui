@@ -28,12 +28,6 @@ export const navigationMenu = ({
       iconLeft: "house",
       selected: false,
     },
-    {
-      name: "Session Information",
-      href: "sessions",
-      iconLeft: "users-viewfinder",
-      selected: false,
-    },
   ].map((link) => {
     if (selectedLink && link.href.includes(selectedLink)) {
       link.selected = true

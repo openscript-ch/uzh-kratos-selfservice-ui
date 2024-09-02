@@ -70,19 +70,19 @@
             // If the user is not on a mobile device
             if (!isMobileDevice()) {
                 // Show the custom message below the clicked element
-                showMessageBelowElement(element, "This link or form may need to be opened on your mobile phone: " + url.href);
+                showMessageBelowElement(element, "The form was submitted. Please proceed in the Pebbles App.");
             }
         };
 
         // Select all anchor tags
-        const links = document.querySelectorAll('a');
+        // const links = document.querySelectorAll('a');
 
-        links.forEach(link => {
-            link.addEventListener('click', (event) => {
-                const url = new URL(link.href);
-                handleCustomURIScheme(url, event, link);
-            });
-        });
+        // links.forEach(link => {
+        //     link.addEventListener('click', (event) => {
+        //         const url = new URL(link.href);
+        //         handleCustomURIScheme(url, event, link);
+        //     });
+        // });
 
         // Select all forms
         const forms = document.querySelectorAll('form');
