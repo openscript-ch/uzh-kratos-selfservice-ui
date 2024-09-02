@@ -27,4 +27,73 @@
         {{/if}}
     {{/each}}
     })
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Function to check if the user is on a mobile device using a CSS media query
+        const isMobileDevice = () => {
+            return window.matchMedia('(max-width: 768px)').matches;
+        };
+
+        const showMessageBelowElement = (element, message) => {
+            // Remove any existing message
+            const existingMessage = element.parentNode.querySelector('.custom-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+
+            // Create a new message element
+            const messageElement = document.createElement('div');
+            messageElement.className = 'custom-message';
+            messageElement.textContent = message;
+
+            // Style the message element
+            messageElement.style.color = '#000000';
+            messageElement.style.backgroundColor = '#c7e585';
+            messageElement.style.padding = '10px';
+            messageElement.style.marginTop = '10px';
+            messageElement.style.border = '1px solid #f5c6cb';
+            messageElement.style.borderRadius = '5px';
+
+            // Insert the message below the clicked element
+            element.parentNode.insertBefore(messageElement, element.nextSibling);
+
+            // Optionally, remove the message after a certain time
+            setTimeout(() => {
+                if (messageElement) {
+                    messageElement.remove();
+                }
+            }, 30000); // Removes the message after 30 seconds
+        };
+
+        // Function to handle custom URI schemes
+        const handleCustomURIScheme = (url, event, element) => {
+            // If the user is not on a mobile device
+            if (!isMobileDevice()) {
+                // Show the custom message below the clicked element
+                showMessageBelowElement(element, "This link or form may need to be opened on your mobile phone: " + url.href);
+            }
+        };
+
+        // Select all anchor tags
+        const links = document.querySelectorAll('a');
+
+        links.forEach(link => {
+            link.addEventListener('click', (event) => {
+                const url = new URL(link.href);
+                handleCustomURIScheme(url, event, link);
+            });
+        });
+
+        // Select all forms
+        const forms = document.querySelectorAll('form');
+
+        forms.forEach(form => {
+            form.addEventListener('submit', (event) => {
+                const action = form.action ? form.action : window.location.href;
+                const url = new URL(action);
+                handleCustomURIScheme(url, event, form);
+            });
+        });
+    });
+
 </script>
