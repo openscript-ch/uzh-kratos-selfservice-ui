@@ -1,3 +1,5 @@
+See customization additions [here](./README.uzh.md)!
+
 # Ory Kratos NodeJS / ExpressJS User Interface Reference Implementation
 
 [![tests](https://github.com/ory/kratos-selfservice-ui-node/actions/workflows/test.yml/badge.svg)](https://github.com/ory/kratos-selfservice-ui-node/actions/workflows/test.yml)
