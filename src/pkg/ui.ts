@@ -49,8 +49,7 @@ export const navigationMenu = ({
         links: links,
       },
       {
-        title: "Default User Interfaces",
-        titleIcon: "circle-question",
+        title: "Actions",
         links: [
           {
             name: "Sign In",

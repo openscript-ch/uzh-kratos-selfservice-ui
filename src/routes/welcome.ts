@@ -11,7 +11,7 @@ import { CardGradient, Typography } from "@ory/elements-markup"
 
 export const createWelcomeRoute: RouteCreator =
   (createHelpers) => async (req, res) => {
-    res.locals.projectName = "Welcome to Ory"
+    res.locals.projectName = "Account Management"
 
     const { frontend } = createHelpers(req, res)
     const session = req.session
@@ -44,7 +44,7 @@ export const createWelcomeRoute: RouteCreator =
         size: "small",
         color: "foregroundMuted",
       }),
-      concepts: [
+      concepts: [/*
         CardGradient({
           heading: "Getting Started",
           content:
@@ -82,7 +82,7 @@ export const createWelcomeRoute: RouteCreator =
           action:
             "https://www.ory.sh/docs/kratos/bring-your-own-ui/configure-ory-to-use-your-ui",
           target: "_blank",
-        }),
+        }),*/
       ].join("\n"),
     })
   }
